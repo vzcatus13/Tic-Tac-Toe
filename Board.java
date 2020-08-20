@@ -18,6 +18,10 @@ class Board {
         xIsNext = true;
     }
 
+    public Board(Symbol[][] board) {
+        this.board = board;
+    }
+
 
     public boolean setCell(int x, int y) {
 
@@ -102,6 +106,10 @@ class Board {
             if (board[0][i] == symbol && board[1][i] == symbol && board[2][i] == symbol) return true;
         }
         return false;
+    }
+
+    Symbol[][] getBoard() {
+        return board;
     }
 
     @Override
