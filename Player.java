@@ -8,6 +8,7 @@ interface Player {
             case "user": return new Human();
             case "easy": return new EasyAI();
             case "medium": return new MediumAI();
+            case "hard": return new HardAI();
             default: return null;
         }
     }
