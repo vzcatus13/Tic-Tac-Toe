@@ -21,7 +21,6 @@ public class Game {
                 playerO.move(board);
             }
             System.out.println(printBoard());
-            System.out.println(gameState().getState());
         }
         System.out.println(gameState().getState());
     }
