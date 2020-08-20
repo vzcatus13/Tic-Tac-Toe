@@ -6,8 +6,6 @@ class Board {
 
     private final Symbol[][] board;
     private boolean xIsNext;
-    private int numberOfX = 0;
-    private int numberOfO = 0;
 
     public Board() {
         board = new Symbol[][] {
@@ -38,9 +36,6 @@ class Board {
         board[3 - y][x - 1] = chooseSymbol();
         xIsNext = !xIsNext;
 
-        if (board[3 - y][x - 1] == Symbol.X) numberOfX++;
-        else numberOfO++;
-
         return true;
     }
 
@@ -62,7 +57,12 @@ class Board {
     }
 
     boolean isFull() {
-        return (numberOfX + numberOfO) == (board.length * board.length);
+        for (int i = 1; i < 4; i++) {
+            for (int j = 1; j < 4; j++) {
+                if (isFree(i, j)) return false;
+            }
+        }
+        return true;
     }
 
     Symbol winner() {
