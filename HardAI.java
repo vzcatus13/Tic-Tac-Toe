@@ -8,7 +8,9 @@ public class HardAI implements Player {
 
     @Override
     public void move(Board board) {
-        if (board.chooseSymbol() == Symbol.X) {
+        boolean isMaximizing = board.chooseSymbol() == Symbol.X;
+
+        if (isMaximizing) {
             int bestScore = Integer.MIN_VALUE;
             int score;
             for (int i = 1; i < 4; i++) {
@@ -33,7 +35,7 @@ public class HardAI implements Player {
                 for (int j = 1; j < 4; j++) {
                     if (board.isFree(i, j)) {
                         board.setCell(i, j);
-                        score = miniMax(board, false);
+                        score = miniMax(board, true);
                         board.unSetCell(i, j);
                         if (score < bestScore) {
                             bestScore = score;
