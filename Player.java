@@ -2,6 +2,10 @@ package tictactoe;
 
 import java.util.Random;
 
+/**
+ * Interface class for Player.
+ * @author copycat13
+ */
 interface Player {
     static Player of(String type) {
         switch (type) {
@@ -13,8 +17,17 @@ interface Player {
         }
     }
 
+    /**
+     * Make a move on specified board.
+     * @param board Board on which the move will be performed.
+     */
     void move(Board board);
 
+
+    /**
+     * Make a random move on specified board.
+     * @param board Board on which the move will be performed.
+     */
     default void randomMove(Board board) {
         Random random = new Random();
 
@@ -29,6 +42,12 @@ interface Player {
         board.setCell(x, y);
     }
 
+    /**
+     * Predict on which coordinates specified symbol will win and make move on that coordinates.
+     * @param board Board on which the operation will be performed.
+     * @param symbol Symbol for which you want to make a move.
+     * @return True if move was made, False if move wasn't made.
+     */
     default boolean tryToWinSymbol(Board board, Symbol symbol) {
         for (int i = 1; i < 4; i++) {
             for (int j = 1; j < 4; j++) {

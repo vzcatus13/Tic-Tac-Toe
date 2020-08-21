@@ -1,5 +1,9 @@
 package tictactoe;
 
+/**
+ * Class which represents hard-level AI.
+ * @author copycat13
+ */
 public class HardAI implements Player {
 
     private int x;
@@ -17,7 +21,7 @@ public class HardAI implements Player {
                 for (int j = 1; j < 4; j++) {
                     if (board.isFree(i, j)) {
                         board.setCell(i, j);
-                        score = miniMax(board, false);
+                        score = minimax(board, false);
                         board.unSetCell(i, j);
                         if (score > bestScore) {
                             bestScore = score;
@@ -35,7 +39,7 @@ public class HardAI implements Player {
                 for (int j = 1; j < 4; j++) {
                     if (board.isFree(i, j)) {
                         board.setCell(i, j);
-                        score = miniMax(board, true);
+                        score = minimax(board, true);
                         board.unSetCell(i, j);
                         if (score < bestScore) {
                             bestScore = score;
@@ -51,7 +55,13 @@ public class HardAI implements Player {
         System.out.println("AI [HARD]: making move...");
     }
 
-    private int miniMax(Board board, boolean isMaximizing) {
+    /**
+     * minimax algorithm implementation
+     * @param board Board on which the operation will be performed.
+     * @param isMaximizing boolean which specifies if we try to maximize score.
+     * @return the best score for specified Board.
+     */
+    private int minimax(Board board, boolean isMaximizing) {
         Symbol winner = board.winner();
 
         if (winner == Symbol.X) return 1;
@@ -66,7 +76,7 @@ public class HardAI implements Player {
                 for (int j = 1; j < 4; j++) {
                     if (board.isFree(i, j)) {
                         board.setCell(i, j);
-                        score = miniMax(board, false);
+                        score = minimax(board, false);
                         bestScore = Math.max(score, bestScore);
                         board.unSetCell(i, j);
                     }
@@ -82,7 +92,7 @@ public class HardAI implements Player {
                 for (int j = 1; j < 4; j++) {
                     if (board.isFree(i, j)) {
                         board.setCell(i, j);
-                        score = miniMax(board, true);
+                        score = minimax(board, true);
                         bestScore = Math.min(score, bestScore);
                         board.unSetCell(i, j);
                     }

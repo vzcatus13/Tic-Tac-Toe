@@ -2,6 +2,10 @@ package tictactoe;
 
 import java.util.Scanner;
 
+/**
+ * Class which represents human player.
+ * @author copycat13
+ */
 public class Human implements Player {
 
     private int x;

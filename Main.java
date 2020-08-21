@@ -2,6 +2,12 @@ package tictactoe;
 
 import java.util.Scanner;
 
+/**
+ * This is a Main class of Game where user's commands are processing.
+ * @author copycat13
+ */
+
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
