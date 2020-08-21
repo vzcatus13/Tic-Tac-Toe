@@ -48,7 +48,7 @@ public class HardAI implements Player {
         }
 
         board.setCell(x, y);
-        System.out.println("Making move level \"hard\"");
+        System.out.println("AI [HARD]: making move...");
     }
 
     private int miniMax(Board board, boolean isMaximizing) {

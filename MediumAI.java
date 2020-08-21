@@ -4,7 +4,7 @@ public class MediumAI implements Player {
 
     @Override
     public void move(Board board) {
-        System.out.println("Making move level \"medium\"");
+        System.out.println("AI [MEDIUM]: making move...");
         if (tryWin(board)) return;
         if (tryDefend(board)) return;
 
